@@ -230,6 +230,9 @@ void setup(bool first){
     /****************
      * INIT OPEN GL *
      ****************/
+    // Viewport
+    glViewport(0, 0, SCREEN_W, SCREEN_H);
+
     // I am setting a state where I am editing the projection matrix.
     glMatrixMode(GL_PROJECTION);
 
@@ -245,8 +248,8 @@ void setup(bool first){
     // Clearing the model-view matrix.
     glLoadIdentity();
 
-    // Viewport
-    glViewport(0, 0, SCREEN_W, SCREEN_H);
+    // Depth test
+    glEnable( GL_DEPTH_TEST);
 
     // Alpha (remove pixels less than 0.5)
     glAlphaFunc(GL_GREATER, 0.5);
@@ -255,8 +258,6 @@ void setup(bool first){
 
     // Set default material
     changeMaterial( MATERIAL_DEFAULT);
-
-    glEnable( GL_DEPTH_TEST);
 
     // Cull back faces
     glEnable(GL_CULL_FACE);
