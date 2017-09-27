@@ -220,35 +220,29 @@ void setup(bool first){
     int monitor_height = 0;
     get_desktop_resolution( &monitor_width, &monitor_height);
 
-    //if(set_gfx_mode( GFX_OPENGL_FULLSCREEN, monitor_width, monitor_height, 0, 0) !=0){
-      //if(set_gfx_mode( GFX_OPENGL_WINDOWED, monitor_width, monitor_height, 0, 0) !=0){
-        //if(set_gfx_mode( GFX_OPENGL_WINDOWED, monitor_width/2, monitor_height/2, 0, 0) !=0){
-        if(set_gfx_mode( GFX_OPENGL_WINDOWED, 1280, 960, 0, 0) !=0){
-          if(set_gfx_mode( GFX_OPENGL_FULLSCREEN, 800, 600, 0, 0) !=0){
-            set_gfx_mode(GFX_TEXT, 0, 0, 0, 0);
-            abort_on_error("Unable to go into any graphic mode\n%s\n");
-          }
-        }
-        //}
-     // }
-    //}
+    if(set_gfx_mode( GFX_OPENGL_WINDOWED, 1280, 960, 0, 0) !=0){
+      if(set_gfx_mode( GFX_OPENGL_WINDOWED, 800, 600, 0, 0) !=0){
+        set_gfx_mode(GFX_TEXT, 0, 0, 0, 0);
+        abort_on_error("Unable to go into any graphic mode\n%s\n");
+      }
+    }
 
     /****************
-     * SOME OPEN GL *
+     * INIT OPEN GL *
      ****************/
-    //I am setting a state where I am editing the projection matrix.
+    // I am setting a state where I am editing the projection matrix.
     glMatrixMode(GL_PROJECTION);
 
-    //Clearing the projection matrix...
+    // Clearing the projection matrix...
     glLoadIdentity();
 
-    // set the perspective with the appropriate aspect ratio
-    gluPerspective(55.0f,(GLfloat)SCREEN_W/(GLfloat)SCREEN_H,0.1f,200.0f);
+    // Set the perspective with the appropriate aspect ratio
+    gluPerspective(60.0f,(GLfloat)SCREEN_W/(GLfloat)SCREEN_H,1.0f,1000.0f);
 
-    //Now editing the model-view matrix.
+    // Now editing the model-view matrix.
     glMatrixMode(GL_MODELVIEW);
 
-    //Clearing the model-view matrix.
+    // Clearing the model-view matrix.
     glLoadIdentity();
 
     // Viewport

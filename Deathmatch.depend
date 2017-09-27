@@ -27,7 +27,7 @@
 1506522922 c:\users\alege\documents\github\3ddeathmatch\include\image_manager.h
 	<allegro.h>
 
-1506524366 source:c:\users\alege\documents\github\3ddeathmatch\src\main.cpp
+1506524671 source:c:\users\alege\documents\github\3ddeathmatch\src\main.cpp
 	<allegro.h>
 	<alpng.h>
 	<alleggl.h>
@@ -89,7 +89,7 @@
 	<glm/glm.hpp>
 	<stdio.h>
 
-1506524133 c:\users\alege\documents\github\3ddeathmatch\include\room.h
+1506524671 c:\users\alege\documents\github\3ddeathmatch\include\room.h
 	<allegro.h>
 	<string>
 	<math.h>
@@ -112,7 +112,7 @@
 	"tools.h"
 	"tile_type.h"
 
-1506524576 c:\users\alege\documents\github\3ddeathmatch\include\player.h
+1506524671 c:\users\alege\documents\github\3ddeathmatch\include\player.h
 	"tools.h"
 	"room.h"
 	"globals.h"
