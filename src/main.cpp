@@ -7,7 +7,7 @@
 
 //Includes
 #define GLEW_STATIC
-#include <GL/glew.h>
+
 
 #include <allegro.h>
 #include <alpng.h>
@@ -20,8 +20,7 @@
 #include <math.h>
 #include <iostream>
 #include <stdio.h>
-#include "fmod/fmod.h"
-#include "fmod/fmod_errors.h"
+
 
 #include "ids.h"
 #include "tile.h"
@@ -225,8 +224,10 @@ void setup(bool first){
       //if(set_gfx_mode( GFX_OPENGL_WINDOWED, monitor_width, monitor_height, 0, 0) !=0){
         //if(set_gfx_mode( GFX_OPENGL_WINDOWED, monitor_width/2, monitor_height/2, 0, 0) !=0){
         if(set_gfx_mode( GFX_OPENGL_WINDOWED, 1280, 960, 0, 0) !=0){
-          set_gfx_mode(GFX_TEXT, 0, 0, 0, 0);
-          abort_on_error("Unable to go into any graphic mode\n%s\n");
+          if(set_gfx_mode( GFX_OPENGL_FULLSCREEN, 800, 600, 0, 0) !=0){
+            set_gfx_mode(GFX_TEXT, 0, 0, 0, 0);
+            abort_on_error("Unable to go into any graphic mode\n%s\n");
+          }
         }
         //}
      // }
@@ -280,10 +281,10 @@ void setup(bool first){
      * SOME GLEW *
      *************/
     //glewExperimental = TRUE;
-    if(glewInit())
+    /*if(glewInit())
       abort_on_error("Crap bukkits! Glew init failed.");
     else
-      std::cout << "Glew initialized \n\n";
+      std::cout << "Glew initialized \n\n";*/
 
     // LOAD SHADERS
     std::cout << "   SHADERS\n-------------\n";

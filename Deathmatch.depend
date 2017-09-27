@@ -1,0 +1,149 @@
+# depslib dependency file v1.0
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\audio_3d.cpp
+	"audio_3d.h"
+
+1506522922 c:\users\alege\documents\github\3ddeathmatch\include\audio_3d.h
+	<allegro.h>
+	<string>
+	"tools.h"
+
+1506522923 c:\users\alege\documents\github\3ddeathmatch\include\tools.h
+	<allegro.h>
+	<string>
+	<iostream>
+	<sstream>
+	<fstream>
+	<cmath>
+	<math.h>
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\globals.cpp
+	"globals.h"
+
+1506522922 c:\users\alege\documents\github\3ddeathmatch\include\globals.h
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\image_manager.cpp
+	"image_manager.h"
+
+1506522922 c:\users\alege\documents\github\3ddeathmatch\include\image_manager.h
+	<allegro.h>
+
+1506524366 source:c:\users\alege\documents\github\3ddeathmatch\src\main.cpp
+	<allegro.h>
+	<alpng.h>
+	<alleggl.h>
+	<string>
+	<time.h>
+	<fstream>
+	<sstream>
+	<math.h>
+	<iostream>
+	<stdio.h>
+	"ids.h"
+	"tile.h"
+	"room.h"
+	"tools.h"
+	"player.h"
+	"audio_3d.h"
+	"globals.h"
+	"material_manager.h"
+
+1506522922 c:\users\alege\documents\github\3ddeathmatch\include\ids.h
+
+1506522923 c:\users\alege\documents\github\3ddeathmatch\include\tile.h
+	<allegro.h>
+	"ids.h"
+	"tile_type.h"
+
+1506522923 c:\users\alege\documents\github\3ddeathmatch\include\tile_type.h
+	<allegro.h>
+	<string>
+	<alleggl.h>
+	<GL/glu.h>
+	"globals.h"
+	"ids.h"
+	"material_manager.h"
+	"quick_primatives.h"
+
+1506522923 c:\users\alege\documents\github\3ddeathmatch\include\material_manager.h
+	<allegro.h>
+	<alleggl.h>
+	<iostream>
+
+1506523280 c:\users\alege\documents\github\3ddeathmatch\include\quick_primatives.h
+	<alleggl.h>
+	<GLM/GLM.hpp>
+	<GL/glu.h>
+	<model.h>
+
+1506523278 c:\users\alege\documents\github\3ddeathmatch\include\model.h
+	<alleggl.h>
+	<vector>
+	<GLM/GLM.hpp>
+	<model_loader.h>
+	"tools.h"
+
+1506522923 c:\users\alege\documents\github\3ddeathmatch\include\model_loader.h
+	<iostream>
+	<string.h>
+	<vector>
+	<glm/glm.hpp>
+	<stdio.h>
+
+1506524133 c:\users\alege\documents\github\3ddeathmatch\include\room.h
+	<allegro.h>
+	<string>
+	<math.h>
+	"tile.h"
+	"ids.h"
+	"tools.h"
+	"tile_type_manager.h"
+	"quick_primatives.h"
+	"globals.h"
+	<glm/glm.hpp>
+	"glm/gtx/string_cast.hpp"
+
+1506522923 c:\users\alege\documents\github\3ddeathmatch\include\tile_type_manager.h
+	<vector>
+	<string>
+	<fstream>
+	<sstream>
+	"rapidxml.hpp"
+	"rapidxml_print.hpp"
+	"tools.h"
+	"tile_type.h"
+
+1506524576 c:\users\alege\documents\github\3ddeathmatch\include\player.h
+	"tools.h"
+	"room.h"
+	"globals.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\material_manager.cpp
+	"material_manager.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\model.cpp
+	"model.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\model_loader.cpp
+	"model_loader.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\player.cpp
+	"player.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\quick_primatives.cpp
+	"quick_primatives.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\room.cpp
+	"room.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\tile.cpp
+	"tile.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\tile_type.cpp
+	"tile_type.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\tile_type_manager.cpp
+	"tile_type_manager.h"
+
+1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\tools.cpp
+	"tools.h"
+

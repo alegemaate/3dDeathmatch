@@ -17,10 +17,12 @@
 #include "tile_type_manager.h"
 #include "quick_primatives.h"
 #include "globals.h"
+
+#define GLM_ENABLE_EXPERIMENTAL
+
 #include <glm/glm.hpp>
 #include "glm/gtx/string_cast.hpp"
 
-typedef glm::tvec3<GLbyte> byte3;
 
 class room{
   public:
