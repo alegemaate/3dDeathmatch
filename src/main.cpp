@@ -220,7 +220,7 @@ void setup(bool first){
     int monitor_height = 0;
     get_desktop_resolution( &monitor_width, &monitor_height);
 
-    if(set_gfx_mode( GFX_OPENGL_WINDOWED, 1280, 960, 0, 0) !=0){
+    if( monitor_height < 960 || set_gfx_mode( GFX_OPENGL_WINDOWED, 1280, 960, 0, 0) !=0){
       if(set_gfx_mode( GFX_OPENGL_WINDOWED, 800, 600, 0, 0) !=0){
         set_gfx_mode(GFX_TEXT, 0, 0, 0, 0);
         abort_on_error("Unable to go into any graphic mode\n%s\n");
@@ -353,6 +353,7 @@ void setup(bool first){
 
     // Character
     jimmy = new player( 0, 1, 0, 45, 135);
+    jimmy -> load_images();
 
     // Sounds
     dinner = new audio_3d( "sounds/dinner.wav", 0, 0, 0);
@@ -457,6 +458,9 @@ void draw(){
   if(showFPS){
     textprintf_ex( buffer, font, 0, 0, makecol(0,0,0), makecol(255,255,255), "FPS-%i", fps);
   }
+
+  // Hud
+  jimmy -> render2D( buffer);
 
   // Cursor
   draw_sprite( buffer, cursor, (SCREEN_W - cursor -> w)/2, (SCREEN_H - cursor -> h)/2);

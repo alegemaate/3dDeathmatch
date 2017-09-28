@@ -8,6 +8,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <iostream>
 #include "tools.h"
 #include "room.h"
 #include "globals.h"
@@ -35,7 +36,10 @@ class player{
 
     void transformWorld();
 
+    void load_images();
+
     void render();
+    void render2D( BITMAP *tempBuf);
     void logic( room *newRoom);
   protected:
   private:
@@ -50,6 +54,7 @@ class player{
     bool sprinting;
 
     BITMAP *image[6];
+    BITMAP *weapon_images[3];
 };
 
 #endif // PLAYER_H

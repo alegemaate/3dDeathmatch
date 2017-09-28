@@ -23,7 +23,6 @@
 #include <glm/glm.hpp>
 #include "glm/gtx/string_cast.hpp"
 
-
 class room{
   public:
     room( BITMAP *tempBuffer);

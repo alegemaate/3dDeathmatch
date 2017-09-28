@@ -9,6 +9,8 @@ player::player( float newX, float newY, float newZ, float newXRot, float newYRot
 
   y_velocity = 0;
   sprinting = false;
+  for( int i = 0; i < 3; i++)
+    weapon_images[i] = nullptr;
 }
 
 player::~player(){
@@ -32,9 +34,28 @@ void player::transformWorld(){
   glPopMatrix();
 }
 
+// Load images
+void player::load_images(){
+  BITMAP *temp_weapons;
+
+  if( !(temp_weapons = load_bitmap( "images/gun.png", NULL)))
+    abort_on_error("Could not laod temp_weapons");
+
+  for( int i = 0; i < 3; i++){
+    weapon_images[i] = create_bitmap( 180, 200);
+    blit( temp_weapons, weapon_images[i], 180 * i, 0, 0, 0, 180, 200);
+  }
+}
+
 // Draw tile
 void player::render(){
   // Nothing.. YET EHHEAHAEH
+}
+
+// Draw tile
+void player::render2D( BITMAP *tempBuf){
+  if( weapon_images[0])
+    draw_sprite( tempBuf, weapon_images[0], SCREEN_W/2 + 90 - weapon_images[0] -> w/2, SCREEN_H - weapon_images[0] -> h);
 }
 
 // Move character and such
