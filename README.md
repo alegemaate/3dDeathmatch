@@ -9,6 +9,9 @@ allegro 4.4 (http://liballeg.org/old.html)
 allegro png (http://alpng.sourceforge.net/)
   Download the newest version, run configure.bat throught your CLI to generate a makefile and then make.
 
+freeGLUT (http://freeglut.sourceforge.net)
+  Using version 3.0.0. Download and build using cmake and make.
+
 openGL Mathematics (https://glm.g-truc.net/0.9.8/index.html)
   Header only library, no building required!
 
