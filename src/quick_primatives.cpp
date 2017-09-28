@@ -285,7 +285,7 @@ void quick_primatives::h_plane( float width, float length){
   // Plane
   glBegin(GL_TRIANGLES);
     // BOTTOM
-    glColor4ub( 255, 0, 0, 255);
+    glColor4ub( 255, 255, 255, 255);
     glNormal3f( 0, -1, 0);
     glTexCoord2f( 0    , 0     ); glVertex3f( -width/2, 0, -length/2 ); //E
     glTexCoord2f( width, 0     ); glVertex3f(  width/2, 0, -length/2 ); //F
@@ -296,7 +296,7 @@ void quick_primatives::h_plane( float width, float length){
     glTexCoord2f( width, length); glVertex3f(  width/2, 0,  length/2 ); //B
 
     // TOP
-    glColor4ub( 255, 0, 0, 255);
+    glColor4ub( 255, 255, 255, 255);
     glNormal3f( 0, 1, 0);
     glTexCoord2f( 0    , 0     ); glVertex3f( -width/2, 0, -length/2 ); //E
     glTexCoord2f( 0    , length); glVertex3f( -width/2, 0,  length/2 ); //A

@@ -147,3 +147,151 @@
 1506522923 source:c:\users\alege\documents\github\3ddeathmatch\src\tools.cpp
 	"tools.h"
 
+1452024149 source:c:\users\allan\documents\games indev\3ddeathmatch\src\audio_3d.cpp
+	"audio_3d.h"
+
+1452031998 c:\users\allan\documents\games indev\3ddeathmatch\include\audio_3d.h
+	<allegro.h>
+	<string>
+	"tools.h"
+
+1452133372 c:\users\allan\documents\games indev\3ddeathmatch\include\tools.h
+	<allegro.h>
+	<string>
+	<iostream>
+	<sstream>
+	<fstream>
+	<cmath>
+	<math.h>
+
+1506481260 source:c:\users\allan\documents\games indev\3ddeathmatch\src\globals.cpp
+	"globals.h"
+
+1452320208 c:\users\allan\documents\games indev\3ddeathmatch\include\globals.h
+
+1447727237 source:c:\users\allan\documents\games indev\3ddeathmatch\src\image_manager.cpp
+	"image_manager.h"
+
+1447732755 c:\users\allan\documents\games indev\3ddeathmatch\include\image_manager.h
+	<allegro.h>
+
+1506546457 source:c:\users\allan\documents\games indev\3ddeathmatch\src\main.cpp
+	<allegro.h>
+	<alpng.h>
+	<alleggl.h>
+	<string>
+	<time.h>
+	<fstream>
+	<sstream>
+	<math.h>
+	<iostream>
+	<stdio.h>
+	"ids.h"
+	"tile.h"
+	"room.h"
+	"tools.h"
+	"player.h"
+	"audio_3d.h"
+	"globals.h"
+	"material_manager.h"
+
+1502495386 c:\users\allan\documents\games indev\3ddeathmatch\include\ids.h
+
+1467406257 c:\users\allan\documents\games indev\3ddeathmatch\include\tile.h
+	<allegro.h>
+	"ids.h"
+	"tile_type.h"
+
+1467489062 c:\users\allan\documents\games indev\3ddeathmatch\include\tile_type.h
+	<allegro.h>
+	<string>
+	<alleggl.h>
+	<GL/glu.h>
+	"globals.h"
+	"ids.h"
+	"material_manager.h"
+	"quick_primatives.h"
+
+1452031965 c:\users\allan\documents\games indev\3ddeathmatch\include\material_manager.h
+	<allegro.h>
+	<alleggl.h>
+	<iostream>
+
+1506476140 c:\users\allan\documents\games indev\3ddeathmatch\include\quick_primatives.h
+	<alleggl.h>
+	<GLM/GLM.hpp>
+	<GL/glu.h>
+	<model.h>
+
+1467590044 c:\users\allan\documents\games indev\3ddeathmatch\include\model.h
+	<alleggl.h>
+	<vector>
+	<GLM/GLM.hpp>
+	<model_loader.h>
+	"tools.h"
+
+1467590067 c:\users\allan\documents\games indev\3ddeathmatch\include\model_loader.h
+	<iostream>
+	<string.h>
+	<vector>
+	<glm/glm.hpp>
+	<stdio.h>
+
+1506546456 c:\users\allan\documents\games indev\3ddeathmatch\include\room.h
+	<allegro.h>
+	<string>
+	<math.h>
+	"tile.h"
+	"ids.h"
+	"tools.h"
+	"tile_type_manager.h"
+	"quick_primatives.h"
+	"globals.h"
+	<glm/glm.hpp>
+	"glm/gtx/string_cast.hpp"
+
+1448679402 c:\users\allan\documents\games indev\3ddeathmatch\include\tile_type_manager.h
+	<vector>
+	<string>
+	<fstream>
+	<sstream>
+	"rapidxml.hpp"
+	"rapidxml_print.hpp"
+	"tools.h"
+	"tile_type.h"
+
+1506546456 c:\users\allan\documents\games indev\3ddeathmatch\include\player.h
+	"tools.h"
+	"room.h"
+	"globals.h"
+
+1506578212 source:c:\users\allan\documents\games indev\3ddeathmatch\src\material_manager.cpp
+	"material_manager.h"
+
+1467589985 source:c:\users\allan\documents\games indev\3ddeathmatch\src\model.cpp
+	"model.h"
+
+1467588084 source:c:\users\allan\documents\games indev\3ddeathmatch\src\model_loader.cpp
+	"model_loader.h"
+
+1506480942 source:c:\users\allan\documents\games indev\3ddeathmatch\src\player.cpp
+	"player.h"
+
+1506577893 source:c:\users\allan\documents\games indev\3ddeathmatch\src\quick_primatives.cpp
+	"quick_primatives.h"
+
+1506577998 source:c:\users\allan\documents\games indev\3ddeathmatch\src\room.cpp
+	"room.h"
+
+1452231652 source:c:\users\allan\documents\games indev\3ddeathmatch\src\tile.cpp
+	"tile.h"
+
+1506481332 source:c:\users\allan\documents\games indev\3ddeathmatch\src\tile_type.cpp
+	"tile_type.h"
+
+1452115778 source:c:\users\allan\documents\games indev\3ddeathmatch\src\tile_type_manager.cpp
+	"tile_type_manager.h"
+
+1468284201 source:c:\users\allan\documents\games indev\3ddeathmatch\src\tools.cpp
+	"tools.h"
+
