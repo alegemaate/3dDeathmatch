@@ -176,7 +176,7 @@
 1447732755 c:\users\allan\documents\games indev\3ddeathmatch\include\image_manager.h
 	<allegro.h>
 
-1506546457 source:c:\users\allan\documents\games indev\3ddeathmatch\src\main.cpp
+1506709532 source:c:\users\allan\documents\games indev\3ddeathmatch\src\main.cpp
 	<allegro.h>
 	<alpng.h>
 	<alleggl.h>
@@ -213,10 +213,18 @@
 	"material_manager.h"
 	"quick_primatives.h"
 
-1452031965 c:\users\allan\documents\games indev\3ddeathmatch\include\material_manager.h
+1506708827 c:\users\allan\documents\games indev\3ddeathmatch\include\material_manager.h
 	<allegro.h>
 	<alleggl.h>
 	<iostream>
+	<string>
+	<vector>
+	<fstream>
+	<sstream>
+	"rapidxml.hpp"
+	"rapidxml_print.hpp"
+	"tools.h"
+	"material.h"
 
 1506476140 c:\users\allan\documents\games indev\3ddeathmatch\include\quick_primatives.h
 	<alleggl.h>
@@ -238,7 +246,7 @@
 	<glm/glm.hpp>
 	<stdio.h>
 
-1506546456 c:\users\allan\documents\games indev\3ddeathmatch\include\room.h
+1506704832 c:\users\allan\documents\games indev\3ddeathmatch\include\room.h
 	<allegro.h>
 	<string>
 	<math.h>
@@ -251,7 +259,7 @@
 	<glm/glm.hpp>
 	"glm/gtx/string_cast.hpp"
 
-1448679402 c:\users\allan\documents\games indev\3ddeathmatch\include\tile_type_manager.h
+1506707902 c:\users\allan\documents\games indev\3ddeathmatch\include\tile_type_manager.h
 	<vector>
 	<string>
 	<fstream>
@@ -261,33 +269,34 @@
 	"tools.h"
 	"tile_type.h"
 
-1506546456 c:\users\allan\documents\games indev\3ddeathmatch\include\player.h
+1506704832 c:\users\allan\documents\games indev\3ddeathmatch\include\player.h
+	<iostream>
 	"tools.h"
 	"room.h"
 	"globals.h"
 
-1506578212 source:c:\users\allan\documents\games indev\3ddeathmatch\src\material_manager.cpp
+1506709640 source:c:\users\allan\documents\games indev\3ddeathmatch\src\material_manager.cpp
 	"material_manager.h"
 
-1467589985 source:c:\users\allan\documents\games indev\3ddeathmatch\src\model.cpp
+1506704841 source:c:\users\allan\documents\games indev\3ddeathmatch\src\model.cpp
 	"model.h"
 
 1467588084 source:c:\users\allan\documents\games indev\3ddeathmatch\src\model_loader.cpp
 	"model_loader.h"
 
-1506480942 source:c:\users\allan\documents\games indev\3ddeathmatch\src\player.cpp
+1506704841 source:c:\users\allan\documents\games indev\3ddeathmatch\src\player.cpp
 	"player.h"
 
-1506577893 source:c:\users\allan\documents\games indev\3ddeathmatch\src\quick_primatives.cpp
+1506637334 source:c:\users\allan\documents\games indev\3ddeathmatch\src\quick_primatives.cpp
 	"quick_primatives.h"
 
-1506577998 source:c:\users\allan\documents\games indev\3ddeathmatch\src\room.cpp
+1506708798 source:c:\users\allan\documents\games indev\3ddeathmatch\src\room.cpp
 	"room.h"
 
 1452231652 source:c:\users\allan\documents\games indev\3ddeathmatch\src\tile.cpp
 	"tile.h"
 
-1506481332 source:c:\users\allan\documents\games indev\3ddeathmatch\src\tile_type.cpp
+1506708815 source:c:\users\allan\documents\games indev\3ddeathmatch\src\tile_type.cpp
 	"tile_type.h"
 
 1452115778 source:c:\users\allan\documents\games indev\3ddeathmatch\src\tile_type_manager.cpp
@@ -295,4 +304,11 @@
 
 1468284201 source:c:\users\allan\documents\games indev\3ddeathmatch\src\tools.cpp
 	"tools.h"
+
+1506707774 c:\users\allan\documents\games indev\3ddeathmatch\include\material.h
+	<alleggl.h>
+	<string>
+
+1506709357 source:c:\users\allan\documents\games indev\3ddeathmatch\src\material.cpp
+	"material.h"
 

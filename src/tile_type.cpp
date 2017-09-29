@@ -86,8 +86,8 @@ void tile_type::draw( double x, double y, double z, bool newTick){
       }
 
       // Shader back
-      if( currentMaterial != MATERIAL_DEFAULT){
-        changeMaterial( MATERIAL_DEFAULT);
+      if( currentMaterial != "MATERIAL_DEFAULT"){
+        changeMaterial( "MATERIAL_DEFAULT");
         glUseProgram( defaultShader);
       }
 

@@ -46,6 +46,8 @@ void room::generateRoom(){
 
   // Done!
   quickPeek( "Done!");
+
+  std::cout << "\n\n";
 }
 
 // Quick Peek
@@ -82,14 +84,14 @@ void room::quickPeek( std::string currentPhase){
 
 //Draw map
 void room::draw( int newAnimationFrame){
-  changeMaterial( MATERIAL_DEFAULT);
+  changeMaterial( "MATERIAL_DEFAULT");
   glUseProgram( defaultShader);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
   // Floor
   glPushMatrix();
-  changeMaterial( MATERIAL_DEFAULT);
+  changeMaterial( "MATERIAL_DEFAULT");
   glBindTexture(GL_TEXTURE_2D, 3);
   glTranslatef( 0, 0, 0);
   quick_primatives::h_plane( this -> width, this -> length);
@@ -97,7 +99,7 @@ void room::draw( int newAnimationFrame){
 
   // Ceiling
   glPushMatrix();
-  changeMaterial( MATERIAL_DEFAULT);
+  changeMaterial( "MATERIAL_DEFAULT");
   glBindTexture(GL_TEXTURE_2D, 4);
   glTranslatef( 0, this -> height, 0);
   quick_primatives::h_plane( this -> width, this -> length);
@@ -132,11 +134,11 @@ void room::draw( int newAnimationFrame){
   for( int i = 0; i < 10; i++){
     glPushMatrix();
     if( i > 6)
-      changeMaterial( MATERIAL_COPPER);
+      changeMaterial( "MATERIAL_COPPER");
     else if( i > 3)
-      changeMaterial( MATERIAL_POLISHED);
+      changeMaterial( "MATERIAL_POLISHED_STONE");
     else
-      changeMaterial( MATERIAL_STONE);
+      changeMaterial( "MATERIAL_STONE");
     glTranslatef( i, 0, 0);
     quick_primatives::model_render( 0.4f, quick_primatives::test_model);
     glPopMatrix();

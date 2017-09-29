@@ -256,9 +256,6 @@ void setup(bool first){
     glEnable(GL_ALPHA_TEST);
     glShadeModel (GL_SMOOTH);
 
-    // Set default material
-    changeMaterial( MATERIAL_DEFAULT);
-
     // Cull back faces
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
@@ -366,10 +363,12 @@ void setup(bool first){
     gameRoom -> load_images();
     gameRoom -> generateRoom();
 
+    // Load materials
+    loadMaterials( "data/materials.xml");
+
     // Load them models
-    if( !quick_primatives::load_models()){
+    if( !quick_primatives::load_models())
       abort_on_error( "quick_primatives couldnt load the damn model!");
-    }
   }
 }
 
