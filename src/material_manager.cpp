@@ -9,11 +9,7 @@ void changeMaterial( int material){
     GLfloat mat_ambient[] = { 0.05f, 0.05f, 0.05f, 1.0f};
     GLfloat mat_diffuse[]  ={ 0.55f, 0.55f, 0.55f, 1.0f};
     GLfloat mat_specular[] = { 0.0f, 0.0f, 0.0f, 1.0f};
-<<<<<<< HEAD
-    GLfloat mat_shininess[] = { 20.0f };
-=======
     GLfloat mat_shininess[] = { 1.0f };
->>>>>>> refs/remotes/origin/master
 
     glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
     glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
