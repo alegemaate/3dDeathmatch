@@ -10,26 +10,25 @@
 
 #include <alleggl.h>
 #include <string>
-#include <fstream>
-
-#include "tools.h"
+#include <vector>
+#include <stdio.h>
 
 class shader{
   public:
     shader();
-    virtual ~shader();
+    virtual ~shader() {};
 
-    int loadShader(char *filename, GLchar **ShaderSource, GLint *len);
-    int unloadShader(GLubyte** ShaderSource);
-
-    void setupShader( std::string shaderFile, int type);
+    int loadShader( std::string, int type);
+    void unloadShader( GLubyte** ShaderSource);
 
     GLuint getId(){ return shader_id; }
+    GLuint getType(){ return shader_type; }
+    bool isLoaded(){ return loaded; }
   protected:
 
   private:
     GLuint shader_id;
-    UINT shader_type;
+    GLuint shader_type;
     bool loaded;
 };
 

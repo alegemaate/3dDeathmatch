@@ -14,17 +14,17 @@
 class program{
   public:
     program();
-    virtual ~program();
+    virtual ~program() {};
 
     void setup();
-    void addShader( shader *newShader);
-    void link();
+    bool link();
+    bool addShader( shader *newShader);
     void use();
   protected:
 
   private:
-    GLuint vertexShader, fragmentShader;
-    int program_id;
+    GLuint vertex_shader, fragment_shader;
+    GLuint program_id;
     bool linked;
 };
 

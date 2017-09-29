@@ -176,7 +176,7 @@
 1447732755 c:\users\allan\documents\games indev\3ddeathmatch\include\image_manager.h
 	<allegro.h>
 
-1506716211 source:c:\users\allan\documents\games indev\3ddeathmatch\src\main.cpp
+1506719229 source:c:\users\allan\documents\games indev\3ddeathmatch\src\main.cpp
 	<allegro.h>
 	<alpng.h>
 	<alleggl.h>
@@ -312,19 +312,19 @@
 1506709357 source:c:\users\allan\documents\games indev\3ddeathmatch\src\material.cpp
 	"material.h"
 
-1506715327 c:\users\allan\documents\games indev\3ddeathmatch\include\program.h
+1506721358 c:\users\allan\documents\games indev\3ddeathmatch\include\program.h
 	"shader.h"
 	"tools.h"
 
-1506716247 c:\users\allan\documents\games indev\3ddeathmatch\include\shader.h
+1506721413 c:\users\allan\documents\games indev\3ddeathmatch\include\shader.h
 	<alleggl.h>
 	<string>
-	<fstream>
-	"tools.h"
+	<vector>
+	<stdio.h>
 
-1506716055 source:c:\users\allan\documents\games indev\3ddeathmatch\src\program.cpp
+1506721346 source:c:\users\allan\documents\games indev\3ddeathmatch\src\program.cpp
 	"program.h"
 
-1506716162 source:c:\users\allan\documents\games indev\3ddeathmatch\src\shader.cpp
+1506721403 source:c:\users\allan\documents\games indev\3ddeathmatch\src\shader.cpp
 	"shader.h"
 

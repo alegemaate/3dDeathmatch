@@ -20,9 +20,9 @@
 			</Target>
 		</Build>
 		<Linker>
-			<Add option="-lalleggl" />
+			<Add option="-lagl" />
 			<Add option="-lalpng" />
-			<Add option="-lalleg44" />
+			<Add option="-lalleg" />
 			<Add option="-luser32" />
 			<Add option="-lgdi32" />
 			<Add option="-lglu32" />
@@ -31,27 +31,31 @@
 		<Unit filename="include/audio_3d.h" />
 		<Unit filename="include/globals.h" />
 		<Unit filename="include/ids.h" />
-		<Unit filename="include/image_manager.h" />
+		<Unit filename="include/material.h" />
 		<Unit filename="include/material_manager.h" />
 		<Unit filename="include/model.h" />
 		<Unit filename="include/model_loader.h" />
 		<Unit filename="include/player.h" />
+		<Unit filename="include/program.h" />
 		<Unit filename="include/quick_primatives.h" />
 		<Unit filename="include/room.h" />
+		<Unit filename="include/shader.h" />
 		<Unit filename="include/tile.h" />
 		<Unit filename="include/tile_type.h" />
 		<Unit filename="include/tile_type_manager.h" />
 		<Unit filename="include/tools.h" />
 		<Unit filename="src/audio_3d.cpp" />
 		<Unit filename="src/globals.cpp" />
-		<Unit filename="src/image_manager.cpp" />
 		<Unit filename="src/main.cpp" />
+		<Unit filename="src/material.cpp" />
 		<Unit filename="src/material_manager.cpp" />
 		<Unit filename="src/model.cpp" />
 		<Unit filename="src/model_loader.cpp" />
 		<Unit filename="src/player.cpp" />
+		<Unit filename="src/program.cpp" />
 		<Unit filename="src/quick_primatives.cpp" />
 		<Unit filename="src/room.cpp" />
+		<Unit filename="src/shader.cpp" />
 		<Unit filename="src/tile.cpp" />
 		<Unit filename="src/tile_type.cpp" />
 		<Unit filename="src/tile_type_manager.cpp" />

@@ -181,8 +181,8 @@ void init_opengl(){
   newVertexShader = new shader();
   newFragmentShader = new shader();
 
-  newVertexShader -> setupShader( "shaders/textured.vert", GL_VERTEX_SHADER);
-  newFragmentShader -> setupShader( "shaders/textured.frag", GL_FRAGMENT_SHADER);
+  newVertexShader -> loadShader( "shaders/textured.vert", GL_VERTEX_SHADER);
+  newFragmentShader -> loadShader( "shaders/textured.frag", GL_FRAGMENT_SHADER);
 
   // Setup shaders
   defaultProgram.setup();

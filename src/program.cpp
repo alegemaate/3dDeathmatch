@@ -5,38 +5,45 @@ program::program(){
   linked = false;
 }
 
-program::~program(){
-  //dtor
-}
-
-// Use the program
-void program::use(){
-  glUseProgram( program_id);
-}
-
-// Link the program
-void program::link(){
-  // Link the program
-  glLinkProgram( program_id);
-
-  // Make sure it is linked
-  GLint linked;
-  glGetProgramiv(program_id, GL_LINK_STATUS, &linked);
-
-  // Error checking
-  if (!linked)
-    abort_on_error( ("Program " + convertIntToString(program_id) + "didnt link...").c_str());
-  else
-    std::cout << "Program " << program_id << " linked!\n\n";
-}
-
-// Attatch the shaders to the program
-void program::addShader( shader *newShader){
-  glAttachShader( program_id, newShader -> getId());
-}
-
-
-// Setup program
+// Setup program with opengl
 void program::setup(){
   program_id = glCreateProgram();
 }
+
+// Link the program
+// ERRORS:
+//   0 Success
+//   1 Could not link
+bool program::link(){
+  // Link
+  glLinkProgram( program_id);
+
+  // Make sure it is linked
+  GLint linkTest;
+  glGetProgramiv( program_id, GL_LINK_STATUS, &linkTest);
+
+  // Check for errors
+  linked = linkTest == GL_TRUE;
+  return linked;
+}
+
+// Attach the shaders to the program
+// ERRORS:
+//   0 Success
+//   1 Shader is null
+bool program::addShader( shader *newShader){
+  // Make sure shader is loaded
+  if( !(newShader -> isLoaded()))
+    return false;
+
+  glAttachShader( program_id, newShader -> getId());
+
+  return true;
+}
+
+// Use this program
+void program::use(){
+  if( linked)
+    glUseProgram( program_id);
+}
+
