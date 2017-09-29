@@ -12,7 +12,6 @@
 #include <vector>
 #include <GLM/GLM.hpp>
 #include <model_loader.h>
-#include "tools.h"
 
 class model
 {

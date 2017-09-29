@@ -38,7 +38,7 @@ void room::update(){
 // Procedural Generation of map
 void room::generateRoom(){
   // GENERATE ROOM
-  std::cout << "GENERATING ROOM\n--------------\n";
+  std::cout << "   GENERATING ROOM\n-----------------------\n";
 
   this -> width = 32;
   this -> height = 8;
@@ -66,7 +66,6 @@ void room::quickPeek( std::string currentPhase){
   draw( 0);
 
   // Allegro drawing
-  glUseProgram(0);
   allegro_gl_set_allegro_mode();
 
   // Transparent buffer
@@ -85,7 +84,6 @@ void room::quickPeek( std::string currentPhase){
 //Draw map
 void room::draw( int newAnimationFrame){
   changeMaterial( "MATERIAL_DEFAULT");
-  glUseProgram( defaultShader);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 

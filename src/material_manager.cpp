@@ -15,7 +15,7 @@ void changeMaterial( std::string materialName){
 }
 
 // Load materials from xml
-void loadMaterials( std::string fileName){
+bool loadMaterials( std::string fileName){
   // Load biomes from file
   rapidxml::xml_document<> doc;
   std::ifstream file;
@@ -24,7 +24,7 @@ void loadMaterials( std::string fileName){
   if( fexists(fileName.c_str()))
     file.open(fileName.c_str());
   else
-    abort_on_error( std::string("Cannot find file " + fileName + " \n Please check your files and try again").c_str());
+    return 0;
 
   std::stringstream buffer;
   buffer << file.rdbuf();
@@ -34,7 +34,7 @@ void loadMaterials( std::string fileName){
   rapidxml::xml_node<> *allMats = doc.first_node();
 
   // Loading
-  std::cout << "MATERIALS\n-------------\n";
+  std::cout << "   MATERIALS\n----------------\n";
 
   // Load tiles
   for(rapidxml::xml_node<> *cMat=allMats-> first_node("material"); cMat; cMat=cMat->next_sibling()){
@@ -84,4 +84,6 @@ void loadMaterials( std::string fileName){
   }
 
   std::cout << "\n\n";
+
+  return 1;
 }

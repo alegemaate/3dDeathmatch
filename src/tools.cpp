@@ -206,3 +206,15 @@ void abort_on_error(const char *message){
 	 exit(-1);
 }
 
+// Get file length
+unsigned long getFileLength( std::ifstream &file){
+  if(!file.good())
+    return 0;
+
+  unsigned long pos = file.tellg();
+  file.seekg( 0, std::ios::end);
+  unsigned long len = file.tellg();
+  file.seekg( std::ios::beg);
+  return len;
+}
+

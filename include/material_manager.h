@@ -18,12 +18,11 @@
 
 #include "rapidxml.hpp"
 #include "rapidxml_print.hpp"
-
 #include "tools.h"
 #include "material.h"
 
 extern void changeMaterial( std::string materialName);
-extern void loadMaterials( std::string fileName);
+extern bool loadMaterials( std::string fileName);
 
 extern std::string currentMaterial;
 
