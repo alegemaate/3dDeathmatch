@@ -131,7 +131,12 @@ void room::draw( int newAnimationFrame){
   // Statue
   for( int i = 0; i < 10; i++){
     glPushMatrix();
-    changeMaterial( MATERIAL_COPPER);
+    if( i > 6)
+      changeMaterial( MATERIAL_COPPER);
+    else if( i > 3)
+      changeMaterial( MATERIAL_POLISHED);
+    else
+      changeMaterial( MATERIAL_STONE);
     glTranslatef( i, 0, 0);
     quick_primatives::model_render( 0.4f, quick_primatives::test_model);
     glPopMatrix();

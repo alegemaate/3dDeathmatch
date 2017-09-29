@@ -18,6 +18,34 @@ void changeMaterial( int material){
 
     currentMaterial = MATERIAL_DEFAULT;
   }
+  // Stone
+  else if( material == MATERIAL_STONE){
+    GLfloat mat_ambient[] = { 0.16f, 0.16f, 0.16f, 1.0f};
+    GLfloat mat_diffuse[]  ={ 0.53f, 0.53f, 0.53f, 1.0f};
+    GLfloat mat_specular[] = { 0.2f, 0.2f, 0.2f, 1.0f};
+    GLfloat mat_shininess[] = { 50.0f };
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+    currentMaterial = MATERIAL_STONE;
+  }
+  // Stone
+  else if( material == MATERIAL_POLISHED){
+    GLfloat mat_ambient[] = { 0.16f, 0.16f, 0.16f, 1.0f};
+    GLfloat mat_diffuse[]  ={ 0.23f, 0.23f, 0.23f, 1.0f};
+    GLfloat mat_specular[] = { 0.9f, 0.9f, 0.9f, 1.0f};
+    GLfloat mat_shininess[] = { 100000.0f };
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+    currentMaterial = MATERIAL_POLISHED;
+  }
   // COPPER
   else if( material == MATERIAL_COPPER){
     GLfloat mat_ambient[] = { 0.16f, 0.09f, 0.00f, 1.0f};

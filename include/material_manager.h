@@ -16,6 +16,8 @@
 #define MATERIAL_WATER 1
 #define MATERIAL_COPPER 2
 #define MATERIAL_RUBBER 3
+#define MATERIAL_STONE 4
+#define MATERIAL_POLISHED 5
 
 extern void changeMaterial( int material);
 

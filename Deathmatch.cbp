@@ -20,9 +20,9 @@
 			</Target>
 		</Build>
 		<Linker>
-			<Add option="-lallegrogl-0.4.4-mt" />
+			<Add option="-lalleggl" />
 			<Add option="-lalpng" />
-			<Add option="-lallegro-4.4.2-mt" />
+			<Add option="-lalleg44" />
 			<Add option="-luser32" />
 			<Add option="-lgdi32" />
 			<Add option="-lglu32" />

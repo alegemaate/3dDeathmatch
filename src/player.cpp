@@ -54,8 +54,13 @@ void player::render(){
 
 // Draw tile
 void player::render2D( BITMAP *tempBuf){
-  if( weapon_images[0])
-    draw_sprite( tempBuf, weapon_images[0], SCREEN_W/2 + 90 - weapon_images[0] -> w/2, SCREEN_H - weapon_images[0] -> h);
+  // Shootemup
+  bool shooting = false;
+  if( mouse_b & 1 || key[KEY_SPACE])
+    shooting = true;
+
+  if( weapon_images[0 + 2 * shooting])
+    draw_sprite( tempBuf, weapon_images[0 + 2 * shooting], SCREEN_W/2 + 90 - weapon_images[0 + 2 * shooting] -> w/2, SCREEN_H - weapon_images[0 + 2 * shooting] -> h);
 }
 
 // Move character and such

@@ -281,8 +281,8 @@ void setup(bool first){
     vertexShader = glCreateShader(GL_VERTEX_SHADER);
     fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-    setupShader( "data/shaders/textured.vert", vertexShader);
-    setupShader( "data/shaders/textured.frag", fragmentShader);
+    setupShader( "shaders/textured.vert", vertexShader);
+    setupShader( "shaders/textured.frag", fragmentShader);
 
     // Make program
     defaultShader = glCreateProgram();
@@ -350,7 +350,7 @@ void setup(bool first){
     dinner = new audio_3d( "sounds/dinner.wav", 0, 0, 0);
 
     //Sets Font
-    f1 = load_font("images/fonts/arial_black.pcx", NULL, NULL);
+    f1 = load_font("fonts/arial_black.pcx", NULL, NULL);
     f2 = extract_font_range(f1, ' ', 'A'-1);
     f3 = extract_font_range(f1, 'A', 'Z');
     f4 = extract_font_range(f1, 'Z'+1, 'z');
