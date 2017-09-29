@@ -41,7 +41,7 @@ void room::generateRoom(){
   std::cout << "GENERATING ROOM\n--------------\n";
 
   this -> width = 32;
-  this -> height = 2;
+  this -> height = 8;
   this -> length = 16;
 
   // Done!
@@ -105,7 +105,7 @@ void room::draw( int newAnimationFrame){
 
   // Wall 1
   glPushMatrix();
-  glBindTexture(GL_TEXTURE_2D, 2);
+  //glBindTexture(GL_TEXTURE_2D, 2);
   glTranslatef( 0, this -> height/2, this -> length/2);
   quick_primatives::v_plane( this -> width, this -> height, 0);
   glPopMatrix();
@@ -132,7 +132,7 @@ void room::draw( int newAnimationFrame){
   for( int i = 0; i < 10; i++){
     glPushMatrix();
     changeMaterial( MATERIAL_COPPER);
-    glTranslatef( 0, 0, i);
+    glTranslatef( i, 0, 0);
     quick_primatives::model_render( 0.4f, quick_primatives::test_model);
     glPopMatrix();
   }

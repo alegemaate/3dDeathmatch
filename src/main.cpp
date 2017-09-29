@@ -272,15 +272,6 @@ void setup(bool first){
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    /*************
-     * SOME GLEW *
-     *************/
-    //glewExperimental = TRUE;
-    /*if(glewInit())
-      abort_on_error("Crap bukkits! Glew init failed.");
-    else
-      std::cout << "Glew initialized \n\n";*/
-
     // LOAD SHADERS
     std::cout << "   SHADERS\n-------------\n";
 
