@@ -12,11 +12,7 @@
 
 #include <string>
 #include <time.h>
-#include <fstream>
-#include <sstream>
-#include <math.h>
 #include <iostream>
-#include <stdio.h>
 
 #include "ids.h"
 #include "tile.h"
@@ -24,7 +20,6 @@
 #include "tools.h"
 #include "player.h"
 #include "audio_3d.h"
-#include "globals.h"
 #include "material_manager.h"
 
 #include "program.h"
@@ -133,43 +128,38 @@ void init_allegro_gl(){
  // OpenGL init
 void init_opengl(){
   // Viewport
-  glViewport(0, 0, SCREEN_W, SCREEN_H);
+  glViewport( 0, 0, SCREEN_W, SCREEN_H);
 
   // Set state to edit the projection matrix.
-  glMatrixMode(GL_PROJECTION);
-
-  // Clear the projection matrix
+  glMatrixMode( GL_PROJECTION);
   glLoadIdentity();
 
   // Set perspective with the appropriate aspect ratio
-  gluPerspective(60.0f,(GLfloat)SCREEN_W/(GLfloat)SCREEN_H,1.0f,1000.0f);
+  gluPerspective( 60.0f, (GLfloat)SCREEN_W / (GLfloat)SCREEN_H, 1.0f, 1000.0f);
 
   // Edit the model-view matrix.
-  glMatrixMode(GL_MODELVIEW);
-
-  // Clear the model-view matrix.
+  glMatrixMode( GL_MODELVIEW);
   glLoadIdentity();
 
   // Depth test
   glEnable( GL_DEPTH_TEST);
 
   // Alpha (remove pixels less than 0.5)
-  glAlphaFunc(GL_GREATER, 0.5);
-  glEnable(GL_ALPHA_TEST);
-  glShadeModel (GL_SMOOTH);
+  glAlphaFunc( GL_GREATER, 0.5);
+  glEnable( GL_ALPHA_TEST);
+  glShadeModel( GL_SMOOTH);
 
   // Cull back faces
-  glEnable(GL_CULL_FACE);
-  glCullFace(GL_BACK);
+  glEnable( GL_CULL_FACE);
+  glCullFace( GL_BACK);
 
-  // TEXTURING
-  // Enable texturing and blending (all tiles use this so lets just call it once)
+  // Enable texturing and blending
   glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-  glEnable(GL_TEXTURE_2D);
+  glEnable( GL_TEXTURE_2D);
 
   // Alpha blending
-  glEnable(GL_BLEND);
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+  glEnable( GL_BLEND);
+  glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   // LOAD SHADERS
   std::cout << "   SHADERS\n-------------\n";
@@ -181,15 +171,19 @@ void init_opengl(){
   newVertexShader = new shader();
   newFragmentShader = new shader();
 
+  std::cout << "-> Loading shaders/textured.vert\n";
   newVertexShader -> loadShader( "shaders/textured.vert", GL_VERTEX_SHADER);
+  std::cout << "-> Loading shaders/textured.frag\n";
   newFragmentShader -> loadShader( "shaders/textured.frag", GL_FRAGMENT_SHADER);
 
   // Setup shaders
+  std::cout << "-> Linking\n";
   defaultProgram.setup();
   defaultProgram.addShader( newVertexShader);
   defaultProgram.addShader( newFragmentShader);
   defaultProgram.link();
   defaultProgram.use();
+  std::cout << "-> Done!\n\n";
 
   // Enable lights
   glEnable(GL_LIGHTING); //turns the "lights" on
@@ -198,18 +192,23 @@ void init_opengl(){
   GLfloat light_ambient[] = { 0.2f, 0.2f, 0.2f, 1.0f };
   GLfloat light_diffuse[] = { 0.9f, 0.9f, 0.9f, 1.0f };
   GLfloat light_specular[] = { 0.9f, 0.9f, 0.9f, 1.0f };
-  GLfloat light_position[] = { -1.5f, 0.5f, -4.0f, 0.0f };
+  GLfloat light_position[] = { 0.0f, 1.0f, 0.0f, 0.0f };
 
   // Light 0
-  glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
-  glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
-  glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
-  glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+  glLightfv( GL_LIGHT0, GL_AMBIENT , light_ambient );
+  glLightfv( GL_LIGHT0, GL_DIFFUSE , light_diffuse );
+  glLightfv( GL_LIGHT0, GL_SPECULAR, light_specular);
+  glLightfv( GL_LIGHT0, GL_POSITION, light_position);
+
+  // Attenuation
+  glLightf( GL_LIGHT0, GL_CONSTANT_ATTENUATION  , 0.45f  );
+  glLightf( GL_LIGHT0, GL_LINEAR_ATTENUATION    , 0.01f );
+  glLightf( GL_LIGHT0, GL_QUADRATIC_ATTENUATION , 0.0f  );
 }
 
 //Load all ingame content
-void setup(bool first){
-  if(first){
+void setup( bool first){
+  if( first){
     // Call independednt inits
     init_allegro();
     init_allegro_gl();
@@ -220,36 +219,29 @@ void setup(bool first){
     cursor = load_bitmap( "images/cursor2.png", NULL);
 
     // Character
-    jimmy = new player( 0, 1, 0, 45, 135);
+    jimmy = new player( 0, 1 , 0, 45, 135);
     jimmy -> load_images();
 
     // Sounds
-    dinner = new audio_3d( "sounds/dinner.wav", 0, 0, 0);
+    dinner = new audio_3d( "sounds/spooky.wav", 0, 0, 0);
 
     //Sets Font
-    f1 = load_font("fonts/arial_black.pcx", NULL, NULL);
-    f2 = extract_font_range(f1, ' ', 'A'-1);
-    f3 = extract_font_range(f1, 'A', 'Z');
-    f4 = extract_font_range(f1, 'Z'+1, 'z');
+    f1 = load_font( "fonts/arial_black.pcx", NULL, NULL);
+    f2 = extract_font_range( f1, ' ', 'A'-1);
+    f3 = extract_font_range( f1, 'A', 'Z');
+    f4 = extract_font_range( f1, 'Z'+1, 'z');
 
     //Merge fonts
-    ARIAL_BLACK = merge_fonts(f4, f5 = merge_fonts(f2, f3));
-
-    //normal map
-    // TRANSFORMS
-    jimmy -> transformWorld();
-
-    gameRoom = new room( buffer);
-    gameRoom -> load_images();
-    gameRoom -> generateRoom();
+    ARIAL_BLACK = merge_fonts( f4, f5 = merge_fonts( f2, f3));
 
     // Load materials
     if( !loadMaterials( "data/materials.xml"))
       abort_on_error( "Cannot find file data/materials.xml \n Please check your files and try again");
 
-    // Load models
-    if( !quick_primatives::load_models())
-      abort_on_error( "quick_primatives couldnt load the model!");
+    // Make room
+    gameRoom = new room( buffer);
+    gameRoom -> load_images();
+    gameRoom -> generateRoom();
   }
 }
 
@@ -266,7 +258,7 @@ void game(){
   defaultProgram.use();
 
   //Exit game
-  if(key[KEY_ESC]){
+  if( key[KEY_ESC]){
     closeGame = true;
   }
 
@@ -277,11 +269,11 @@ void game(){
 //Draw images
 void draw(){
   // View matrix
-  glMatrixMode(GL_MODELVIEW);
+  glMatrixMode( GL_MODELVIEW);
 
   // Clear screen
-  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  glClearColor( 0.0f, 0.0f, 0.0f, 1.0f);
+  glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   // Reset transforms
   glLoadIdentity();
@@ -296,12 +288,13 @@ void draw(){
   // Transform world to players view
   jimmy -> transformWorld();
 
-  // Draw player
-  //jimmy -> render();
+  glPushMatrix();
+    glTranslatef( 0.0f, 2.0f, 0.0f);
+    quick_primatives::cube( 0.2, 0);
+  glPopMatrix();
 
-  // Draw map
-  if( !key[KEY_TILDE])
-    gameRoom -> draw( 0);
+  // Draw room
+  gameRoom -> draw();
 
   // Back to init shader
   glUseProgram(0);
@@ -321,13 +314,11 @@ void draw(){
   // Cursor
   draw_sprite( buffer, cursor, (SCREEN_W - cursor -> w)/2, (SCREEN_H - cursor -> h)/2);
 
-  //FPS counter
+  // Fps and debug
   textprintf_ex( buffer, font, 0, 0, makecol(0,0,0), makecol(255,255,255), "FPS-%i", fps);
-
-  // Debug text
   textprintf_ex( buffer, ARIAL_BLACK, 20, 20, makecol(0,0,0), makecol(255,255,255), "Camera X:%4.1f Y:%4.1f Z:%4.1f RotX:%4.1f RotY:%4.1f ", jimmy -> getX(), jimmy -> getY(), jimmy -> getZ(), jimmy -> getXRotation(), jimmy -> getYRotation());
 
-  //Draws buffer
+  // Draws buffer
   draw_sprite( screen, buffer, 0, 0);
 
   // Back to opengl mode

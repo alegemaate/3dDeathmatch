@@ -17,6 +17,7 @@
 #include "tile_type_manager.h"
 #include "quick_primatives.h"
 #include "globals.h"
+#include "model.h"
 
 #define GLM_ENABLE_EXPERIMENTAL
 
@@ -33,7 +34,7 @@ class room{
     void load_images();
     void update();
     void generateRoom();
-    void draw( int newAnimationFrame);
+    void draw();
 
     tile *map_tiles[DEFAULT_MAP_WIDTH][DEFAULT_MAP_LENGTH][DEFAULT_MAP_HEIGHT];
 
@@ -51,6 +52,9 @@ class room{
     char height;
 
     tile_type_manager all_tile_defs;
+
+    model model_statue;
+    mesh newMesh;
 };
 
 #endif // ROOM_H

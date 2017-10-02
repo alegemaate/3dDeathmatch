@@ -1,37 +1,35 @@
 /*
   Model
   Allan Legemaate
-  02/07/16
-  A nice class that stores vertices, uvs and normals of a model
+  02/10/17
+  Contains a mesh, texture and material
 */
 
 #ifndef MODEL_H
 #define MODEL_H
 
-#include <alleggl.h>
-#include <vector>
-#include <GLM/GLM.hpp>
-#include <model_loader.h>
+#include <mesh.h>
+#include <material.h>
+#include "obj_loader.h"
 
-class model
-{
+class model{
   public:
+    model( mesh newMesh, material newMaterial, GLuint newTexture);
     model();
-    virtual ~model();
+    virtual ~model() {};
 
-    std::vector< glm::vec3 > vertices;
-    std::vector< glm::vec2 > uvs;
-    std::vector< glm::vec3 > normals;
+    bool loadMesh( const char *path);
+    bool loadTexture( const char *path);
+    void setTexture( GLuint textureId);
+    void setMaterial( material newMaterial);
 
-    GLuint vertexbuffer;
-    GLuint normalbuffer;
-    GLuint texturebuffer;
-
-    GLuint texture_id;
-
-    bool load( const char * path, const char * uv_path);
+    void render( float scale);
   protected:
+
   private:
+    mesh model_mesh;
+    material model_material;
+    GLuint model_texture_id;
 };
 
 #endif // MODEL_H

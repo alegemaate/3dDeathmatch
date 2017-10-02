@@ -25,13 +25,8 @@ void player::transformWorld(){
   glTranslatef( -x, -y, -z);
 
   // Place light 0 Back to normal
-  GLfloat light_position[] = { 2.0f - x, 1.0f - y, 5.0f - z, 0.0f };
+  GLfloat light_position[] = { 0.0f - x, 3.0f - y, 0.0f - z, 0.0f };
   glLightfv(GL_LIGHT0, GL_POSITION, light_position);
-
-  glPushMatrix();
-    glTranslatef( 2.0f, 0.5f, 5.0f);
-    quick_primatives::cube( 0.2, 0);
-  glPopMatrix();
 }
 
 // Load images
@@ -89,23 +84,23 @@ void player::logic( room *newRoom){
     yRotation += 360;
 
   // Reset mouse pos
-  position_mouse(SCREEN_W/2, SCREEN_H/2);
+  position_mouse( SCREEN_W/2, SCREEN_H/2);
 
   // LEFT 1 RIGHT 2 FRONT 3 BACK 4
-  bool canMoveXPLUS = true;
+  bool canMoveXPLUS  = true;
   bool canMoveXMINUS = true;
-  bool canMoveZPLUS = true;
+  bool canMoveZPLUS  = true;
   bool canMoveZMINUS = true;
 
   // Vars
   float yChange = -((float)sin(xRotation / 180 * M_PI)/(5 + 10 * gameMode) * (sprinting + 1));
   if( gameMode)
     yChange = 0;
-  float xChange = (float)sin(yRotation / 180 * M_PI)/(5 + 10 * gameMode) * (sprinting + 1);
-  float zChange = -(float)cos(yRotation  / 180 * M_PI)/(5 + 10 * gameMode) * (sprinting + 1);
+  float xChange =  (float)sin(yRotation / 180 * M_PI)/(5 + 10 * gameMode) * (sprinting + 1);
+  float zChange = -(float)cos(yRotation / 180 * M_PI)/(5 + 10 * gameMode) * (sprinting + 1);
 
   // Forward
-  if(key[KEY_W] || key[KEY_UP]){
+  if( key[KEY_W] || key[KEY_UP]){
     if( !gameMode)
       y += yChange;
     if( !gameMode || (zChange < 0 && canMoveZMINUS) || (zChange > 0 && canMoveZPLUS))
@@ -114,7 +109,7 @@ void player::logic( room *newRoom){
       x += xChange;
   }
   // Backward
-  if(key[KEY_S] || key[KEY_DOWN]){
+  if( key[KEY_S] || key[KEY_DOWN]){
     if( !gameMode)
       y -= yChange;
     if( !gameMode || (zChange > 0 && canMoveZMINUS) || (zChange < 0 && canMoveZPLUS))
@@ -123,14 +118,14 @@ void player::logic( room *newRoom){
       x -= xChange;
   }
   // Left
-  if(key[KEY_A] || key[KEY_LEFT]){
+  if( key[KEY_A] || key[KEY_LEFT]){
     if( !gameMode || (xChange > 0 && canMoveZMINUS) || (xChange < 0 && canMoveZPLUS))
       z -= xChange;
     if( !gameMode || (zChange < 0 && canMoveXMINUS) || (zChange > 0 && canMoveXPLUS))
       x += zChange;
   }
   // Right
-  if(key[KEY_D] || key[KEY_RIGHT]){
+  if( key[KEY_D] || key[KEY_RIGHT]){
     if( !gameMode || (xChange < 0 && canMoveZMINUS) || (xChange > 0 && canMoveZPLUS))
       z += xChange;
     if( !gameMode || (zChange > 0 && canMoveXMINUS) || (zChange < 0 && canMoveXPLUS))

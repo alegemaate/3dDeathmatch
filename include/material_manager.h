@@ -23,6 +23,7 @@
 
 extern void changeMaterial( std::string materialName);
 extern bool loadMaterials( std::string fileName);
+extern GLuint getMaterial( std::string materialName);
 
 extern std::string currentMaterial;
 

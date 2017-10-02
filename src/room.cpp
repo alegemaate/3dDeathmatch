@@ -10,6 +10,12 @@ room::room( BITMAP *tempBuffer){
 
   // Buffer
   buffPoint = tempBuffer;
+
+  // Load models
+  if( !(model_statue.loadMesh("models/statue.obj") && model_statue.loadTexture("models/statue_uv.png")))
+    abort_on_error( "couldn't load the model!");
+
+  model_statue.setMaterial( materials.at(getMaterial("MATERIAL_COPPER")));
 }
 
 // Deconstruct
@@ -63,7 +69,7 @@ void room::quickPeek( std::string currentPhase){
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   // Draw tiles
-  draw( 0);
+  draw();
 
   // Allegro drawing
   allegro_gl_set_allegro_mode();
@@ -72,7 +78,7 @@ void room::quickPeek( std::string currentPhase){
   rectfill( buffPoint, 0, 0, SCREEN_W, SCREEN_H, makecol( 255, 0, 255));
 
   // Info
-  textprintf_centre_ex( buffPoint, font, SCREEN_W/2, SCREEN_H/2,makecol(0,0,0),makecol(255,255,255),"%s", currentPhase.c_str());
+  textprintf_centre_ex( buffPoint, font, SCREEN_W/2, SCREEN_H/2, makecol(0,0,0), makecol(255,255,255), "%s", currentPhase.c_str());
 
   // Draw to screen
   draw_sprite( screen, buffPoint, 0, 0);
@@ -82,15 +88,15 @@ void room::quickPeek( std::string currentPhase){
 }
 
 //Draw map
-void room::draw( int newAnimationFrame){
+void room::draw(){
   changeMaterial( "MATERIAL_DEFAULT");
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+  glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+  glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
   // Floor
   glPushMatrix();
   changeMaterial( "MATERIAL_DEFAULT");
-  glBindTexture(GL_TEXTURE_2D, 3);
+  glBindTexture( GL_TEXTURE_2D, 3);
   glTranslatef( 0, 0, 0);
   quick_primatives::h_plane( this -> width, this -> length);
   glPopMatrix();
@@ -98,7 +104,7 @@ void room::draw( int newAnimationFrame){
   // Ceiling
   glPushMatrix();
   changeMaterial( "MATERIAL_DEFAULT");
-  glBindTexture(GL_TEXTURE_2D, 4);
+  glBindTexture( GL_TEXTURE_2D, 4);
   glTranslatef( 0, this -> height, 0);
   quick_primatives::h_plane( this -> width, this -> length);
   glPopMatrix();
@@ -129,16 +135,8 @@ void room::draw( int newAnimationFrame){
   glPopMatrix();
 
   // Statue
-  for( int i = 0; i < 10; i++){
-    glPushMatrix();
-    if( i > 6)
-      changeMaterial( "MATERIAL_COPPER");
-    else if( i > 3)
-      changeMaterial( "MATERIAL_POLISHED_STONE");
-    else
-      changeMaterial( "MATERIAL_STONE");
-    glTranslatef( i, 0, 0);
-    quick_primatives::model_render( 0.4f, quick_primatives::test_model);
-    glPopMatrix();
-  }
+  glPushMatrix();
+    glTranslatef( 0.0f, 0.0f, 0.0f);
+    model_statue.render( 0.4f);
+  glPopMatrix();
 }

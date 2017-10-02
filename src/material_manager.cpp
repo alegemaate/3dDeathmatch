@@ -14,6 +14,17 @@ void changeMaterial( std::string materialName){
   }
 }
 
+// Get material id
+GLuint getMaterial( std::string materialName){
+  // Find in all materials
+  for( unsigned int i = 0; i < materials.size(); i++){
+    if( materialName == materials.at(i).getName()){
+      return i;
+    }
+  }
+  return 0;
+}
+
 // Load materials from xml
 bool loadMaterials( std::string fileName){
   // Load biomes from file

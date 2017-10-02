@@ -1,17 +1,11 @@
 #include "quick_primatives.h"
 
-model quick_primatives::test_model;
-
 quick_primatives::quick_primatives(){
 
 }
 
 quick_primatives::~quick_primatives(){
   //dtor
-}
-
-bool quick_primatives::load_models(){
-  return test_model.load( "models/statue.obj", "models/statue_uv.png");;
 }
 
 // Resizable Cube
@@ -337,39 +331,4 @@ void quick_primatives::v_plane( float width, float height, float rotation){
     glTexCoord2f( 0    , height); glVertex3f( -width/2,  height/2, 0 ); //A
     glTexCoord2f( width, height); glVertex3f(  width/2,  height/2, 0 ); //B
   glEnd();
-}
-
-// Model
-void quick_primatives::model_render( float primative_scale, model new_model){
-  // Push in case of scale
-  glPushMatrix();
-    // Scale
-    glScaled( primative_scale, primative_scale, primative_scale);
-
-    // Verticies
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glBindBuffer(GL_ARRAY_BUFFER, new_model.vertexbuffer);
-    glVertexPointer(3, GL_FLOAT, sizeof(glm::vec3), NULL);
-
-    // Normals
-    glEnableClientState(GL_NORMAL_ARRAY);
-    glBindBuffer(GL_ARRAY_BUFFER, new_model.normalbuffer);
-    glNormalPointer(GL_FLOAT, sizeof(glm::vec3), NULL);
-
-    // Textures
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glBindBuffer(GL_ARRAY_BUFFER, new_model.texturebuffer);
-    glTexCoordPointer(2, GL_FLOAT, sizeof(glm::vec2), NULL);
-    glBindTexture(GL_TEXTURE_2D, new_model.texture_id);
-
-    // Send all info to ogl for drawing
-    glDrawArrays(GL_TRIANGLES, 0, new_model.vertices.size());
-
-    // Disable vbo arrays
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_NORMAL_ARRAY);
-    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-
-  // Pop in case of scale
-  glPopMatrix();
 }
