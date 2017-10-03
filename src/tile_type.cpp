@@ -70,7 +70,7 @@ void tile_type::draw( double x, double y, double z, bool newTick){
       }
       // Small Cube
       else if( model == "MODEL_CUBE_SMALL"){
-        quick_primatives::model_render( 0.25f, quick_primatives::test_model);
+        quick_primatives::cube( 1.0f, 0.75f);
       }
       // Flat Cube
       else if( model == "MODEL_FLAT"){
@@ -86,9 +86,8 @@ void tile_type::draw( double x, double y, double z, bool newTick){
       }
 
       // Shader back
-      if( currentMaterial != MATERIAL_DEFAULT){
-        changeMaterial( MATERIAL_DEFAULT);
-        glUseProgram( defaultShader);
+      if( currentMaterial != "MATERIAL_DEFAULT"){
+        changeMaterial( "MATERIAL_DEFAULT");
       }
 
       // Back

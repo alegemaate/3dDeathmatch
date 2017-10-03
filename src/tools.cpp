@@ -1,20 +1,5 @@
 #include "tools.h"
 
-//Iterates through the number of buttons in a joystick and returns true if any keys are pressed
-/*bool keyboard_keypressed(){
-    bool keypressed=false;
-    for(int i=0; i<125; i++)
-        if(key[i])keypressed=true;
-    return keypressed;
-
-}*/
-//Iterates through the number of buttons in a joystick and returns true if any buttons are pressed
-/*bool joy_buttonpressed(){
-    bool buttonpressed=false;
-    for(int i=0; i<joy[0].num_buttons; i++)
-        if(joy[0].button[i].b)buttonpressed=true;
-    return buttonpressed;
-}*/
 //Collision
 bool collisionAny(int xMin1, int xMax1, int xMin2, int xMax2, int yMin1, int yMax1, int yMin2, int yMax2){
   if (xMin1 < xMax2 && yMin1 < yMax2 && xMin2 < xMax1 && yMin2 < yMax1){
@@ -28,14 +13,12 @@ bool collisionOverlap(double x1, double width1, double x2, double width2){
   }
   return false;
 }
-
 bool collisionOverlap2(double x1, double width, double x2){
   if(x1 + width > x2 && x1 < x2){
     return true;
   }
   return false;
 }
-
 
 // 3D collision
 bool collision3d(double x1, double width1, double x2, double width2, double y1, double height1, double y2, double height2, double z1, double depth1, double z2, double depth2){
@@ -126,83 +109,26 @@ int divideCatchZero( int number1, int number2){
   return 0;
 }
 
-
-// false if fully outside, true if inside or intersects
-/*bool boxInFrustum( frustum3 const & fru, bound3 const & box )
-{
-  // check box outside/inside of frustum
-  for( int i=0; i<6; i++ ){
-      int out = 0;
-      out += ((dot( fru.mPlane[i], vec4(box.mMinX, box.mMinY, box.mMinZ, 1.0f) ) < 0.0 )?1:0);
-      out += ((dot( fru.mPlane[i], vec4(box.mMaxX, box.mMinY, box.mMinZ, 1.0f) ) < 0.0 )?1:0);
-      out += ((dot( fru.mPlane[i], vec4(box.mMinX, box.mMaxY, box.mMinZ, 1.0f) ) < 0.0 )?1:0);
-      out += ((dot( fru.mPlane[i], vec4(box.mMaxX, box.mMaxY, box.mMinZ, 1.0f) ) < 0.0 )?1:0);
-      out += ((dot( fru.mPlane[i], vec4(box.mMinX, box.mMinY, box.mMaxZ, 1.0f) ) < 0.0 )?1:0);
-      out += ((dot( fru.mPlane[i], vec4(box.mMaxX, box.mMinY, box.mMaxZ, 1.0f) ) < 0.0 )?1:0);
-      out += ((dot( fru.mPlane[i], vec4(box.mMinX, box.mMaxY, box.mMaxZ, 1.0f) ) < 0.0 )?1:0);
-      out += ((dot( fru.mPlane[i], vec4(box.mMaxX, box.mMaxY, box.mMaxZ, 1.0f) ) < 0.0 )?1:0);
-      if( out==8 ) return false;
-  }
-
-  // check frustum outside/inside box
-  int out;
-  out=0; for( int i=0; i<8; i++ ) out += ((fru.mPoints[i].x > box.mMaxX)?1:0); if( out==8 ) return false;
-  out=0; for( int i=0; i<8; i++ ) out += ((fru.mPoints[i].x < box.mMinX)?1:0); if( out==8 ) return false;
-  out=0; for( int i=0; i<8; i++ ) out += ((fru.mPoints[i].y > box.mMaxY)?1:0); if( out==8 ) return false;
-  out=0; for( int i=0; i<8; i++ ) out += ((fru.mPoints[i].y < box.mMinY)?1:0); if( out==8 ) return false;
-  out=0; for( int i=0; i<8; i++ ) out += ((fru.mPoints[i].z > box.mMaxZ)?1:0); if( out==8 ) return false;
-  out=0; for( int i=0; i<8; i++ ) out += ((fru.mPoints[i].z < box.mMinZ)?1:0); if( out==8 ) return false;
-
-  return true;
-}*/
-
-// Fade in
-/*void highcolor_fade_in(BITMAP* bmp_orig, int speed){
-  BITMAP* bmp_buff = create_bitmap(SCREEN_W,SCREEN_H);
-  BITMAP* str_orig = create_bitmap( SCREEN_W, SCREEN_H);
-  stretch_sprite( str_orig, bmp_orig, 0, 0, SCREEN_W, SCREEN_H);
-
-  if ( speed<=0)
-    speed=16;
-
-  for(int a=0; a<256; a+=speed){
-    clear( bmp_buff);
-    set_trans_blender( 0, 0, 0, a);
-    draw_trans_sprite( bmp_buff, str_orig, 0, 0);
-    vsync();
-    stretch_sprite( screen, bmp_buff, 0, 0,  SCREEN_W, SCREEN_H);
-  }
-  stretch_sprite( screen, str_orig, 0, 0,  SCREEN_W, SCREEN_H);
-}
-
-// Fade out
-void highcolor_fade_out(int speed){
-  BITMAP* bmp_buff = create_bitmap(SCREEN_W,SCREEN_H);
-  BITMAP *bmp_orig = create_bitmap( SCREEN_W, SCREEN_H);
-  blit(screen,bmp_orig,0,0,0,0,SCREEN_W,SCREEN_H);
-
-  if ( speed<=0)
-    speed=16;
-
-  for( int a=255 - speed; a>0; a-=speed){
-    clear( bmp_buff);
-    set_trans_blender( 0, 0, 0, a);
-    draw_trans_sprite( bmp_buff, bmp_orig, 0, 0);
-    vsync();
-    stretch_sprite( screen, bmp_buff, 0, 0,  SCREEN_W, SCREEN_H);
-  }
-  destroy_bitmap( bmp_orig);
-  rectfill( screen, 0, 0,  SCREEN_W, SCREEN_H, makecol(0,0,0));
-}*/
-
 /*
  *  ERROR REPORTING
  */
 void abort_on_error(const char *message){
-	 if (screen != NULL){
-	    set_gfx_mode(GFX_TEXT, 0, 0, 0, 0);
-	 }
-	 allegro_message("%s.\n %s\n", message, allegro_error);
-	 exit(-1);
+  if( screen != NULL){
+    set_gfx_mode( GFX_TEXT, 0, 0, 0, 0);
+  }
+  allegro_message( "%s.\n %s\n", message, allegro_error);
+  exit(-1);
+}
+
+// Get file length
+unsigned long getFileLength( std::ifstream &file){
+  if( !file.good())
+    return 0;
+
+  unsigned long pos = file.tellg();
+  file.seekg( 0, std::ios::end);
+  unsigned long len = file.tellg();
+  file.seekg( std::ios::beg);
+  return len;
 }
 

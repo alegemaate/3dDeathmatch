@@ -37,7 +37,7 @@
 	<tile id="3">
 		<name>Floor</name>
 		<images>
-			<image>images/textures/floor.png</image>
+			<image>images/textures/ceiling.png</image>
 			<image2>NULL</image2>
 		</images>
 		<model>MODEL_CUBE</model>

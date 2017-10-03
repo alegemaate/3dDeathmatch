@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+Deathmatch.depend
+*.exe
+*.o
+*.layout

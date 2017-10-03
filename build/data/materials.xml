@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<materials>
+	<!-- Default -->
+	<material id="0">
+		<name>MATERIAL_DEFAULT</name>
+		<ambient>
+      <r>0.05</r>
+      <g>0.05</g>
+      <b>0.05</b>
+      <a>1.0</a>
+    </ambient>
+    <diffuse>
+      <r>0.55</r>
+      <g>0.55</g>
+      <b>0.55</b>
+      <a>1.0</a>
+    </diffuse>
+    <specular>
+      <r>0.0</r>
+      <g>0.0</g>
+      <b>0.0</b>
+      <a>1.0</a>
+    </specular>
+    <shininess>1.0</shininess>
+	</material>
+  <!-- Stone -->
+	<material id="1">
+		<name>MATERIAL_STONE</name>
+		<ambient>
+      <r>0.16</r>
+      <g>0.16</g>
+      <b>0.16</b>
+      <a>1.0</a>
+    </ambient>
+    <diffuse>
+      <r>0.53</r>
+      <g>0.53</g>
+      <b>0.53</b>
+      <a>1.0</a>
+    </diffuse>
+    <specular>
+      <r>0.2</r>
+      <g>0.2</g>
+      <b>0.2</b>
+      <a>1.0</a>
+    </specular>
+    <shininess>50.0</shininess>
+	</material>
+  <!-- Polished Stone -->
+	<material id="2">
+		<name>MATERIAL_POLISHED_STONE</name>
+		<ambient>
+      <r>0.16</r>
+      <g>0.16</g>
+      <b>0.16</b>
+      <a>1.0</a>
+    </ambient>
+    <diffuse>
+      <r>0.23</r>
+      <g>0.23</g>
+      <b>0.23</b>
+      <a>1.0</a>
+    </diffuse>
+    <specular>
+      <r>0.9</r>
+      <g>0.9</g>
+      <b>0.9</b>
+      <a>1.0</a>
+    </specular>
+    <shininess>500.0</shininess>
+	</material>
+  <!-- Copper -->
+	<material id="3">
+		<name>MATERIAL_COPPER</name>
+		<ambient>
+      <r>0.16</r>
+      <g>0.09</g>
+      <b>0.00</b>
+      <a>1.0</a>
+    </ambient>
+    <diffuse>
+      <r>0.85</r>
+      <g>0.46</g>
+      <b>0.14</b>
+      <a>1.0</a>
+    </diffuse>
+    <specular>
+      <r>1.0</r>
+      <g>0.7</g>
+      <b>0.1</b>
+      <a>1.0</a>
+    </specular>
+    <shininess>300.0</shininess>
+	</material>
+</materials>

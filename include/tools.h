@@ -72,5 +72,7 @@ extern void set_next_state( int newState );
 // Error reporting
 extern void abort_on_error(const char *message);
 
+// Get file length
+extern unsigned long getFileLength( std::ifstream &file);
 
 #endif // TOOLS_H

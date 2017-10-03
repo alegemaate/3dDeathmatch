@@ -11,14 +11,22 @@
 #include <allegro.h>
 #include <alleggl.h>
 #include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <sstream>
 
-#define MATERIAL_DEFAULT 0
-#define MATERIAL_WATER 1
-#define MATERIAL_COPPER 2
-#define MATERIAL_RUBBER 3
+#include "rapidxml.hpp"
+#include "rapidxml_print.hpp"
+#include "tools.h"
+#include "material.h"
 
-extern void changeMaterial( int material);
+extern void changeMaterial( std::string materialName);
+extern bool loadMaterials( std::string fileName);
+extern GLuint getMaterial( std::string materialName);
 
-extern int currentMaterial;
+extern std::string currentMaterial;
+
+extern std::vector<material> materials;
 
 #endif // MATERIAL_MANAGER_H
