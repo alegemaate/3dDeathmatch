@@ -33,8 +33,9 @@
 		<Unit filename="include/ids.h" />
 		<Unit filename="include/material.h" />
 		<Unit filename="include/material_manager.h" />
+		<Unit filename="include/mesh.h" />
 		<Unit filename="include/model.h" />
-		<Unit filename="include/model_loader.h" />
+		<Unit filename="include/obj_loader.h" />
 		<Unit filename="include/player.h" />
 		<Unit filename="include/program.h" />
 		<Unit filename="include/quick_primatives.h" />
@@ -49,8 +50,9 @@
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/material.cpp" />
 		<Unit filename="src/material_manager.cpp" />
+		<Unit filename="src/mesh.cpp" />
 		<Unit filename="src/model.cpp" />
-		<Unit filename="src/model_loader.cpp" />
+		<Unit filename="src/obj_loader.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/program.cpp" />
 		<Unit filename="src/quick_primatives.cpp" />
