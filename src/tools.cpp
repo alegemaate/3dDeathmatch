@@ -38,7 +38,7 @@ bool collision3d(double x1, double width1, double x2, double width2, double y1, 
 //Checks if file exists
 bool fexists(const char *filename){
   std::ifstream ifile(filename);
-  return ifile;
+  return !ifile.fail();
 }
 
 //Random number generator. Use int random(lowest,highest);
