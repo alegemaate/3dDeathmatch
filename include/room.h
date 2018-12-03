@@ -42,8 +42,6 @@ class room{
   protected:
 
   private:
-    void quickPeek( std::string currentPhase);
-
     BITMAP *overlay_images[20];
     BITMAP *buffPoint;
 

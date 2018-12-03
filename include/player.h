@@ -8,47 +8,23 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <iostream>
-#include "tools.h"
-#include "room.h"
-#include "globals.h"
+#include "entity.h"
 
-#ifndef M_PI
-    #define M_PI 3.14159265358979323846
-#endif
-
-
-class player{
+class player : public entity {
   public:
-    player( float newX, float newY, float newZ, float newXRot, float newYRot);
+    player (float x, float y, float z, float x_rot, float y_rot);
     virtual ~player();
-
-    float getX() { return x; }
-    float getY() { return y; }
-    float getZ() { return z; }
-
-    float* getPointX() { return &x; }
-    float* getPointY() { return &y; }
-    float* getPointZ() { return &z; }
-
-    float getXRotation() { return xRotation; }
-    float getYRotation() { return yRotation; }
 
     void transformWorld();
 
     void load_images();
 
-    void render();
-    void render2D( BITMAP *tempBuf);
-    void logic( room *newRoom);
+    void render2D(BITMAP *tempBuf);
+
+    virtual void render() override;
+    virtual void logic(room *newRoom) override;
   protected:
   private:
-    float x;
-    float y;
-    float z;
-    float xRotation;
-    float yRotation;
-
     float y_velocity;
 
     bool sprinting;

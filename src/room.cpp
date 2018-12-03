@@ -48,43 +48,9 @@ void room::generateRoom(){
 
   this -> width = 32;
   this -> height = 8;
-  this -> length = 16;
+  this -> length = 32;
 
-  // Done!
-  quickPeek( "Done!");
-
-  std::cout << "\n\n";
-}
-
-// Quick Peek
-void room::quickPeek( std::string currentPhase){
-  // Send to console
-  std::cout << "PHASE:" << currentPhase.c_str() << "\n";
-
-  // View matrix
-  glMatrixMode(GL_MODELVIEW);
-
-  // Clear screen
-  glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-  // Draw tiles
-  draw();
-
-  // Allegro drawing
-  allegro_gl_set_allegro_mode();
-
-  // Transparent buffer
-  rectfill( buffPoint, 0, 0, SCREEN_W, SCREEN_H, makecol( 255, 0, 255));
-
-  // Info
-  textprintf_centre_ex( buffPoint, font, SCREEN_W/2, SCREEN_H/2, makecol(0,0,0), makecol(255,255,255), "%s", currentPhase.c_str());
-
-  // Draw to screen
-  draw_sprite( screen, buffPoint, 0, 0);
-
-  allegro_gl_unset_allegro_mode();
-  allegro_gl_flip();
+  std::cout << "Done!\n\n";
 }
 
 //Draw map

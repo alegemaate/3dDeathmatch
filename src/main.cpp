@@ -19,6 +19,7 @@
 #include "room.h"
 #include "tools.h"
 #include "player.h"
+#include "enemy.h"
 #include "audio_3d.h"
 #include "material_manager.h"
 
@@ -63,6 +64,8 @@ const int updates_per_second = 60;
 
 room* gameRoom;
 player* jimmy;
+
+std::vector<enemy*> enemies;
 
 program defaultProgram;
 
@@ -219,8 +222,13 @@ void setup( bool first){
     cursor = load_bitmap( "images/cursor2.png", NULL);
 
     // Character
-    jimmy = new player( 0, 1 , 0, 45, 135);
+    jimmy = new player(0, 1 , 0, 45, 135);
     jimmy -> load_images();
+
+    for (int i = 0; i < 6; i++) {
+      enemy *temp_enemy = new enemy(1 + i * 2, -2, 0, i * 45, i * 45);
+      enemies.push_back(temp_enemy);
+    }
 
     // Sounds
     dinner = new audio_3d( "sounds/spooky.wav", 0, 0, 0);
@@ -248,10 +256,15 @@ void setup( bool first){
 //Run the game loops
 void game(){
   gameRoom -> update();
-  jimmy -> logic( gameRoom);
+  jimmy -> logic(gameRoom);
+
+  // Update enemies
+  for (unsigned int i = 0; i < enemies.size(); i++) {
+    enemies.at(i) -> logic(gameRoom);
+  }
 
   if( key[KEY_M])
-    dinner -> play3D( jimmy -> getPointX(), jimmy -> getPointY(), jimmy -> getPointZ(), 255, 127, 1000, true);
+    dinner -> play3D(jimmy -> getPointX(), jimmy -> getPointY(), jimmy -> getPointZ(), 255, 127, 1000, true);
   dinner -> update();
 
   // Back to normal shader
@@ -288,13 +301,13 @@ void draw(){
   // Transform world to players view
   jimmy -> transformWorld();
 
-  glPushMatrix();
-    glTranslatef( 0.0f, 2.0f, 0.0f);
-    quick_primatives::cube( 0.2, 0);
-  glPopMatrix();
-
   // Draw room
   gameRoom -> draw();
+
+  // Draw enemies
+  for (unsigned int i = 0; i < enemies.size(); i++) {
+    enemies.at(i) -> render();
+  }
 
   // Back to init shader
   glUseProgram(0);

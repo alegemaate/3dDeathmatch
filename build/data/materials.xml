@@ -92,4 +92,27 @@
     </specular>
     <shininess>300.0</shininess>
 	</material>
+  <!-- Enemy -->
+	<material id="4">
+		<name>MATERIAL_ENEMY</name>
+		<ambient>
+      <r>0.16</r>
+      <g>0.09</g>
+      <b>0.00</b>
+      <a>1.0</a>
+    </ambient>
+    <diffuse>
+      <r>0.85</r>
+      <g>0.46</g>
+      <b>0.14</b>
+      <a>1.0</a>
+    </diffuse>
+    <specular>
+      <r>1.0</r>
+      <g>0.7</g>
+      <b>0.1</b>
+      <a>1.0</a>
+    </specular>
+    <shininess>300.0</shininess>
+	</material>
 </materials>
