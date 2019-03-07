@@ -29,6 +29,8 @@
 			<Add option="-lopengl32" />
 		</Linker>
 		<Unit filename="include/audio_3d.h" />
+		<Unit filename="include/enemy.h" />
+		<Unit filename="include/entity.h" />
 		<Unit filename="include/globals.h" />
 		<Unit filename="include/ids.h" />
 		<Unit filename="include/material.h" />
@@ -46,6 +48,8 @@
 		<Unit filename="include/tile_type_manager.h" />
 		<Unit filename="include/tools.h" />
 		<Unit filename="src/audio_3d.cpp" />
+		<Unit filename="src/enemy.cpp" />
+		<Unit filename="src/entity.cpp" />
 		<Unit filename="src/globals.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/material.cpp" />
